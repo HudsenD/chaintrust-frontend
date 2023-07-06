@@ -1,7 +1,10 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
+  "/api/hello": "pages/api/hello.js",
+  "/dashboard": "pages/dashboard.html",
+  "/": "pages/index.html",
+  "/trust": "pages/trust.html",
   "/_document": "pages/_document.js",
-  "/trust": "pages/trust.js",
-  "/": "pages/index.js"
+  "/404": "pages/404.html"
 }

@@ -4,8 +4,10 @@ import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { ConnectButton } from "@rainbow-me/rainbowkit";
 import Header from "../components/Header";
+import supabase from "./config/supabaseClient";
 
 export default function Home() {
+  console.log(supabase);
   return (
     <div
       className={`${styles.container} min-h-screen bg-gradient-to-b from-green-500 to-black`}

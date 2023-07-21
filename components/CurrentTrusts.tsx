@@ -85,10 +85,10 @@ const CurrentTrusts = () => {
 
   return (
     <div>
-      <h2>Price Trust Minteds</h2>
+      <h2>Your Price Trusts</h2>
       {priceTrustMinteds}
 
-      <h2>Time Trust Minteds</h2>
+      <h2>Your Time Trusts</h2>
       {timeTrustMinteds}
     </div>
   );

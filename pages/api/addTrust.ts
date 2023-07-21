@@ -101,8 +101,8 @@ export default async function addTrusts(
     // Fetch the ID of the last trust added to the Supabase database
     const { data: lastTrust, error: lastTrustError } = await supabase
       .from("Trusts")
-      .select("id")
-      .order("id", { ascending: false })
+      .select("token_id")
+      .order("token_id", { ascending: false })
       .limit(1);
 
     if (lastTrustError) {
@@ -110,7 +110,7 @@ export default async function addTrusts(
       throw lastTrustError;
     }
 
-    const lastId = lastTrust ? lastTrust[0].id : "0";
+    const lastId = lastTrust ? lastTrust[0].token_id : "0";
 
     // Fetch the latest price trusts from The Graph
     const priceTrusts = await queryGraph(GET_PRICE_TRUSTS, lastId);

@@ -73,7 +73,7 @@ export default async function checkTrusts(
           await supabase
             .from("Trusts")
             .update({ has_released: true })
-            .eq("id", trust.id);
+            .eq("token_id", trust.token_id);
         } catch (error) {
           console.error(
             `Failed to release time trust ${trust.token_id}:`,
@@ -93,7 +93,7 @@ export default async function checkTrusts(
           await supabase
             .from("Trusts")
             .update({ has_released: true })
-            .eq("id", trust.id);
+            .eq("token_id", trust.token_id);
         } catch (error) {
           console.error(
             `Failed to release price trust ${trust.token_id}:`,

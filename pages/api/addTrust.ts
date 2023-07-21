@@ -138,6 +138,10 @@ export default async function addTrusts(
     // Send a response
     res.status(200).json({ message: "Trusts added successfully" });
   } catch (error) {
+    if (error instanceof Error) {
+      console.error("Error message:", error.message);
+      console.error("Stack trace:", error.stack);
+    }
     res.status(500).json({ error: "An error occurred while adding trusts" });
   }
 }

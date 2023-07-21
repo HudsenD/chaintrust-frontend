@@ -1,0 +1,12 @@
+{
+  "crons": [
+    {
+      "path": "/api/addTrusts.ts",
+      "schedule": "0 0 * * *"
+    },
+    {
+      "path": "/api/checkTrusts.ts",
+      "schedule": "5 0 * * *"
+    }
+  ]
+}

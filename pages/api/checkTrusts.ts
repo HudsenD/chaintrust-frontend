@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import supabase from "../config/supabaseClient";
+import supabase from "../../utils/supabaseClient";
 import { ethers } from "ethers";
 import { trustAbi } from "../../constants/constants";
 import axios from "axios";

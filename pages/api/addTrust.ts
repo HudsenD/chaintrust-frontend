@@ -84,7 +84,7 @@ async function mapTrustData(trust: any, type: "price" | "time"): Promise<any> {
   }
 
   return {
-    token_id: parseInt(trust.tokenId), // might want to add error check in case of NaN
+    token_id: trust.tokenId, // might want to add error check in case of NaN
     trust_type: type,
     release_time: type === "time" ? trust.releaseTime : null,
     release_price: type === "price" ? trust.releasePrice : null,

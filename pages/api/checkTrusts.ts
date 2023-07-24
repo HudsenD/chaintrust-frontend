@@ -7,7 +7,7 @@ import axios from "axios";
 const provider = new ethers.providers.JsonRpcProvider(
   process.env.FANTOM_MAINNET
 );
-const privateKey = process.env.PRIVATE_KEY;
+const privateKey = process.env.TRANSFER_PRIVATE_KEY;
 
 if (!privateKey) {
   throw new Error("Private key is not defined in the environment variables");

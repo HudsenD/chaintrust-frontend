@@ -110,7 +110,8 @@ export default async function addTrusts(
       throw lastTrustError;
     }
 
-    const lastId = lastTrust ? lastTrust[0].token_id : "0";
+    const lastId =
+      lastTrust && lastTrust.length > 0 ? lastTrust[0].token_id : "0";
 
     // Fetch the latest price trusts from The Graph
     const priceTrusts = await queryGraph(GET_PRICE_TRUSTS, lastId);

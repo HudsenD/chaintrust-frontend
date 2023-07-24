@@ -119,21 +119,51 @@ export default async function addTrusts(
 
     // Process and add price trusts to the database
     for (const trust of priceTrusts.priceTrustMinteds) {
-      // Map the trust data to the format required by Supabase
-      const mappedTrust = mapTrustData(trust, "price");
+      if (trust) {
+        // Map the trust data to the format required by Supabase
+        const mappedTrust = mapTrustData(trust, "price");
 
-      // Add the trust to the Supabase database
-      await addTrustToDatabase(mappedTrust);
+        // Add the trust to the Supabase database
+        await addTrustToDatabase(mappedTrust);
+      } else {
+        console.warn(
+          "Undefined trust encountered in priceTrusts.priceTrustMinteds"
+        );
+      }
     }
 
     // Process and add time trusts to the database
     for (const trust of timeTrusts.timeTrustMinteds) {
-      // Map the trust data to the format required by Supabase
-      const mappedTrust = mapTrustData(trust, "time");
+      if (trust) {
+        // Map the trust data to the format required by Supabase
+        const mappedTrust = mapTrustData(trust, "time");
 
-      // Add the trust to the Supabase database
-      await addTrustToDatabase(mappedTrust);
+        // Add the trust to the Supabase database
+        await addTrustToDatabase(mappedTrust);
+      } else {
+        console.warn(
+          "Undefined trust encountered in timeTrusts.timeTrustMinteds"
+        );
+      }
     }
+
+    // // Process and add price trusts to the database
+    // for (const trust of priceTrusts.priceTrustMinteds) {
+    //   // Map the trust data to the format required by Supabase
+    //   const mappedTrust = mapTrustData(trust, "price");
+
+    //   // Add the trust to the Supabase database
+    //   await addTrustToDatabase(mappedTrust);
+    // }
+
+    // // Process and add time trusts to the database
+    // for (const trust of timeTrusts.timeTrustMinteds) {
+    //   // Map the trust data to the format required by Supabase
+    //   const mappedTrust = mapTrustData(trust, "time");
+
+    //   // Add the trust to the Supabase database
+    //   await addTrustToDatabase(mappedTrust);
+    // }
 
     // Send a response
     res.status(200).json({ message: "Trusts added successfully" });

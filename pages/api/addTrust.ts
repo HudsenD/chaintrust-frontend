@@ -29,7 +29,7 @@ const client = new ApolloClient({
 
 const GET_PRICE_TRUSTS = gql`
   query GetPriceTrusts($lastId: String!) {
-    priceTrustMinteds(first: 100, where: { id_gt: $lastId }) {
+    priceTrustMinteds(first: 100, where: { tokenId_gt: $lastId }) {
       id
       tokenId
       creator
@@ -41,7 +41,7 @@ const GET_PRICE_TRUSTS = gql`
 
 const GET_TIME_TRUSTS = gql`
   query GetTimeTrusts($lastId: String!) {
-    timeTrustMinteds(first: 100, where: { id_gt: $lastId }) {
+    timeTrustMinteds(first: 100, where: { tokenId_gt: $lastId }) {
       id
       tokenId
       creator
@@ -112,17 +112,18 @@ export default async function addTrusts(
 
     const lastId =
       lastTrust && lastTrust.length > 0 ? lastTrust[0].token_id : "0";
+    let lastIdString = lastId.toString();
 
     // Fetch the latest price trusts from The Graph
-    const priceTrusts = await queryGraph(GET_PRICE_TRUSTS, lastId);
+    const priceTrusts = await queryGraph(GET_PRICE_TRUSTS, lastIdString);
     // Fetch the latest time trusts from The Graph
-    const timeTrusts = await queryGraph(GET_TIME_TRUSTS, lastId);
+    const timeTrusts = await queryGraph(GET_TIME_TRUSTS, lastIdString);
 
     // Process and add price trusts to the database
     for (const trust of priceTrusts.priceTrustMinteds) {
       if (trust) {
         // Map the trust data to the format required by Supabase
-        const mappedTrust = mapTrustData(trust, "price");
+        const mappedTrust = await mapTrustData(trust, "price");
 
         // Add the trust to the Supabase database
         await addTrustToDatabase(mappedTrust);
@@ -137,7 +138,7 @@ export default async function addTrusts(
     for (const trust of timeTrusts.timeTrustMinteds) {
       if (trust) {
         // Map the trust data to the format required by Supabase
-        const mappedTrust = mapTrustData(trust, "time");
+        const mappedTrust = await mapTrustData(trust, "time");
 
         // Add the trust to the Supabase database
         await addTrustToDatabase(mappedTrust);

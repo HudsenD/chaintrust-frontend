@@ -20,8 +20,8 @@ const contract = new ethers.Contract(
   wallet
 );
 
-async function getCurrentPrice(assetPair: string): Promise<number> {
-  const asset = assetPair.split("/")[0].toLowerCase(); // get the asset symbol and convert to lowercase
+async function getCurrentPrice(asset: string): Promise<number> {
+  //const asset = assetPair.split("/")[0].toLowerCase(); // get the asset symbol and convert to lowercase
   const response = await axios.get(
     `https://api.coingecko.com/api/v3/simple/price?ids=${asset}&vs_currencies=usd`
   );
@@ -32,7 +32,7 @@ async function getCurrentPrice(assetPair: string): Promise<number> {
     const priceSolidityFormat = price * 10 ** 6;
     return priceSolidityFormat;
   } else {
-    throw new Error(`Failed to fetch price for asset pair: ${assetPair}`);
+    throw new Error(`Failed to fetch price for asset pair: ${asset}/usd`);
   }
 }
 
@@ -53,10 +53,10 @@ export default async function checkTrusts(
     }
 
     const assetPrices: { [key: string]: number } = {
-      "BTC/USD": await getCurrentPrice("BTC/USD"),
-      "ETH/USD": await getCurrentPrice("ETH/USD"),
-      "FTM/USD": await getCurrentPrice("FTM/USD"),
-      "LINK/USD": await getCurrentPrice("LINK/USD"),
+      "BTC/USD": await getCurrentPrice("bitcoin"),
+      "ETH/USD": await getCurrentPrice("ethereum"),
+      "FTM/USD": await getCurrentPrice("fantom"),
+      "LINK/USD": await getCurrentPrice("chainlink"),
     };
 
     for (const trust of trusts) {
@@ -105,6 +105,10 @@ export default async function checkTrusts(
 
     res.status(200).json({ message: "Trusts checked successfully" });
   } catch (error) {
+    if (error instanceof Error) {
+      console.error("Error message:", error.message);
+      console.error("Stack trace:", error.stack);
+    }
     res.status(500).json({ error: "An error occurred while checking trusts" });
   }
 }

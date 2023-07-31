@@ -54,7 +54,10 @@ const CurrentTrusts = () => {
       <p>Token ID: {trust.tokenId}</p>
       <p>Creator: {trust.creator}</p>
       <p>Beneficiary: {trust.beneficiary}</p>
-      <button onClick={() => setSelectedTokenId(trust.tokenId)}>
+      <button
+        className="px-4 py-2 mt-2 text-white bg-blue-500 rounded hover:bg-blue-700"
+        onClick={() => setSelectedTokenId(trust.tokenId)}
+      >
         Get Trust Address
       </button>
       {selectedTokenId === trust.tokenId &&
@@ -71,7 +74,10 @@ const CurrentTrusts = () => {
       <p>Token ID: {trust.tokenId}</p>
       <p>Creator: {trust.creator}</p>
       <p>Beneficiary: {trust.beneficiary}</p>
-      <button onClick={() => setSelectedTokenId(trust.tokenId)}>
+      <button
+        className="px-4 py-2 mt-2 text-white bg-blue-500 rounded hover:bg-blue-700"
+        onClick={() => setSelectedTokenId(trust.tokenId)}
+      >
         Get Trust Address
       </button>
       {selectedTokenId === trust.tokenId &&
@@ -85,10 +91,10 @@ const CurrentTrusts = () => {
 
   return (
     <div>
-      <h2>Your Price Trusts</h2>
+      <h2 className="mt-2 font-bold">Your Price Trusts</h2>
       {priceTrustMinteds}
 
-      <h2>Your Time Trusts</h2>
+      <h2 className="mt-6 font-bold">Your Time Trusts</h2>
       {timeTrustMinteds}
     </div>
   );

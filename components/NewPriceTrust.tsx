@@ -42,7 +42,7 @@ const NewPriceTrust = () => {
     address: "0x477A0D6807d401D4aF0bB73f593ecB69C2e8730C",
     abi: trustAbi,
     functionName: "createPriceTrustFund",
-    args: [beneficiary, assetPair, releasePrice],
+    args: [beneficiary, assetPair, parseFloat(releasePrice) * 100000000],
   });
 
   const createPriceTrustFund = useContractWrite({
@@ -101,11 +101,17 @@ const NewPriceTrust = () => {
             <option value="LINK/USD">LINK/USD</option>
           </select>
 
-          <div className="mt-4 text-center">Enter Release Price</div>
+          <div className="mt-4 text-center">Enter USD Release Price</div>
           <input
             className="w-full px-3 py-2 mt-2 border-2 border-gray-300 rounded-md"
             placeholder="Release Price"
-            onChange={(event) => setReleasePrice(event.target.value)}
+            onChange={(event) => {
+              const value = event.target.value;
+              // Only update the state if the input is a valid number or an empty string
+              if (value === "" || /^\d*\.?\d{0,3}$/.test(value)) {
+                setReleasePrice(value);
+              }
+            }}
             value={releasePrice}
           />
 

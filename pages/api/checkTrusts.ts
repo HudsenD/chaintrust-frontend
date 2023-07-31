@@ -29,7 +29,7 @@ async function getCurrentPrice(asset: string): Promise<number> {
   // Check if the response contains the price data
   if (response.data[asset] && response.data[asset].usd) {
     const price = response.data[asset].usd;
-    const priceSolidityFormat = price * 10 ** 6;
+    const priceSolidityFormat = price * 10 ** 8;
     return priceSolidityFormat;
   } else {
     throw new Error(`Failed to fetch price for asset pair: ${asset}/usd`);

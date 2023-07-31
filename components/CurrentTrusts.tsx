@@ -91,6 +91,10 @@ const CurrentTrusts = () => {
 
   return (
     <div>
+      <p className="mt-2 text-lg font-bold">
+        The Trust address is where you send your assets that you want in the
+        trust
+      </p>
       <h2 className="mt-2 font-bold">Your Price Trusts</h2>
       {priceTrustMinteds}
 

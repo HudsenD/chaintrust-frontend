@@ -1,18 +1,38 @@
-# ChainTrust Website
+# ChainTrust: Digital Trust Funds on the Blockchain
 
-I have created a website using NextJS, Wagmi, and Typescript so that users can seamlessly interact with the TrustOperator contract I created. Users can choose to create either time or price-based trusts on fantom mainnet which will enable them to simplify their wealth management.
+ChainTrust is a innovative platform that symbolizes each Trust as a unique NFT (Non-Fungible Token) with its own distinct wallet address using ERC-6551. By leveraging the power of blockchain technology, ChainTrust ensures secure asset ownership and seamless transfer to beneficiaries.
 
-## Backend
+## Features
 
-## Technologies
+- **Unique NFT Representation**: Each Trust is represented as an NFT with a unique wallet address via ERC-6551.
+- **Automated Trust Transfers**: ChainTrust uses GraphQL to query The Graph for real-time on-chain data, ensuring timely Trust ownership updates in Supabase. Once a trust's terms are met, the system automatically initiates the transfer to its beneficiary.
 
-Project is made with:
+- **Secure and Transparent**: Built on top of Ethereum, ChainTrust ensures the utmost security and transparency for all transactions.
 
-- NextJS
-- Wagmi
-- Rainbowkit
-- DaisyUI
-- Typescript
-- TailwindCSS
+## Technologies Used
 
-# Demo
+- **Smart Contracts**: Solidity
+- **Frontend**: NextJs
+- **Backend**: Hardhat, JavaScript
+- **Database**: Supabase
+- **Blockchain Data**: The Graph
+
+## Getting Started
+
+1. **Clone the Repository**
+
+   ```bash
+   git clone https://github.com/HudsenD/chaintrust-frontend.git
+   ```
+
+## Live Demo
+
+https://chaintrust-frontend-cay1.vercel.app/
+
+## Smart Contracts Repo
+
+https://github.com/HudsenD/chaintrust-contracts
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)

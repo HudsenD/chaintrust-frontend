@@ -5,9 +5,7 @@ import styles from "../styles/Home.module.css";
 
 const dashboard = () => {
   return (
-    <div
-      className={`${styles.container} min-h-screen bg-gradient-to-b from-green-500 to-black`}
-    >
+    <div className="min-h-screen bg-background">
       <div className="w-full">
         <div className="justify-center w-full h-auto max-w-screen-lg mx-auto">
           <Header />

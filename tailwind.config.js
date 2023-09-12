@@ -1,13 +1,21 @@
 /** @type {import('tailwindcss').Config} */
 
 module.exports = {
-    content: [
-        "./pages/**/*.{js,ts,jsx,tsx}",
-        "./components/**/*.{js,ts,jsx,tsx}",
-        "node_modules/daisyui/**/*.{js,jsx,ts,tsx",
-    ],
-    theme: {
-        extend: {},
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+    "node_modules/daisyui/**/*.{js,jsx,ts,tsx",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        text: "#010e0b",
+        background: "#e3fdf7",
+        primary: "#0d81ab",
+        secondary: "#d0dafb",
+        accent: "#071c5f",
+      },
     },
-    plugins: [require("daisyui")],
-}
+  },
+  plugins: [require("daisyui")],
+};

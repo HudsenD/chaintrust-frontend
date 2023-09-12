@@ -12,26 +12,26 @@ const Header = () => {
       <div className="flex items-center justify-between max-w-screen-lg mx-auto">
         <div className="flex items-center">
           <a href="/">
-            <div className="text-4xl font-bold text-black hover:text-gray-300">
+            <div className="text-4xl font-bold text-primary hover:text-gray-300">
               ChainTrust
             </div>
           </a>
         </div>
         <div className="flex items-center justify-center">
           <Link href={"/trust"} passHref>
-            <div className="mx-12 text-lg font-medium text-black hover:text-gray-300">
+            <div className="mx-12 text-lg font-medium text-primary hover:text-gray-300">
               New Trust Fund
             </div>
           </Link>
           <Link href={"/dashboard"} passHref>
-            <div className="mx-12 text-lg font-medium text-black hover:text-gray-300">
+            <div className="mx-12 text-lg font-medium text-primary hover:text-gray-300">
               Dashboard
             </div>
           </Link>
         </div>
         <div className="flex items-center">
           <div className="flex flex-grow"></div>
-          <div className="flex items-center ">
+          <div className="flex items-center">
             <ConnectButton />
           </div>
         </div>

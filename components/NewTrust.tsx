@@ -84,7 +84,7 @@ const NewTrust = () => {
   return (
     <div className="w-full">
       <div className="flex justify-center w-full h-auto max-w-screen-lg mx-auto">
-        <div className="items-center justify-center w-3/6 p-4 mt-16 bg-white shadow-xl h-1/2 rounded-xl">
+        <div className="items-center justify-center w-3/6 p-4 mt-16 shadow-xl bg-secondary h-1/2 rounded-xl">
           <div className="text-xl font-bold text-center">
             Create Time-Based Trust
           </div>
@@ -108,7 +108,7 @@ const NewTrust = () => {
 
             <div>
               <button
-                className={`btn mt-4 ${
+                className={`btn mt-4 bg-accent text-secondary ${
                   beneficiary && selectedDate
                     ? "cursor-pointer"
                     : "cursor-not-allowed"

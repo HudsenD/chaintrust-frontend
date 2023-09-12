@@ -50,12 +50,15 @@ const CurrentTrusts = () => {
   if (error) return <p>Please Connect Wallet!</p>;
 
   const priceTrustMinteds = data.priceTrustMinteds.map((trust: Trust) => (
-    <div key={trust.id} className="p-4 mt-4 bg-white shadow-xl rounded-xl">
+    <div
+      key={trust.id}
+      className="p-4 mt-4 shadow-xl bg-secondary rounded-xl text-text"
+    >
       <p>Token ID: {trust.tokenId}</p>
       <p>Creator: {trust.creator}</p>
       <p>Beneficiary: {trust.beneficiary}</p>
       <button
-        className="px-4 py-2 mt-2 text-white bg-blue-500 rounded hover:bg-blue-700"
+        className="px-4 py-2 mt-2 rounded text-text bg-primary hover:bg-blue-700"
         onClick={() => setSelectedTokenId(trust.tokenId)}
       >
         Get Trust Address
@@ -70,12 +73,15 @@ const CurrentTrusts = () => {
   ));
 
   const timeTrustMinteds = data.timeTrustMinteds.map((trust: Trust) => (
-    <div key={trust.id} className="p-4 mt-4 bg-white shadow-xl rounded-xl">
+    <div
+      key={trust.id}
+      className="p-4 mt-4 shadow-xl text-text bg-secondary rounded-xl"
+    >
       <p>Token ID: {trust.tokenId}</p>
       <p>Creator: {trust.creator}</p>
       <p>Beneficiary: {trust.beneficiary}</p>
       <button
-        className="px-4 py-2 mt-2 text-white bg-blue-500 rounded hover:bg-blue-700"
+        className="px-4 py-2 mt-2 rounded text-text bg-primary hover:bg-blue-700"
         onClick={() => setSelectedTokenId(trust.tokenId)}
       >
         Get Trust Address
@@ -91,14 +97,14 @@ const CurrentTrusts = () => {
 
   return (
     <div>
-      <p className="mt-2 text-lg font-bold">
+      <p className="mt-2 text-lg font-bold text-text">
         The Trust Address is where you send any assets that you want in the
         trust
       </p>
-      <h2 className="mt-2 font-bold">Your Price Trusts</h2>
+      <h2 className="mt-2 font-bold text-text">Your Price Trusts</h2>
       {priceTrustMinteds}
 
-      <h2 className="mt-6 font-bold">Your Time Trusts</h2>
+      <h2 className="mt-6 font-bold text-text">Your Time Trusts</h2>
       {timeTrustMinteds}
     </div>
   );

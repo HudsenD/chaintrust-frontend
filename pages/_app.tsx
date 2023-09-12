@@ -44,7 +44,13 @@ const wagmiClient = createConfig({
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig config={wagmiClient}>
-      <RainbowKitProvider chains={chains}>
+      <RainbowKitProvider
+        theme={darkTheme({
+          accentColor: "#071c5f",
+          accentColorForeground: "#d0dafb",
+        })}
+        chains={chains}
+      >
         <ApolloProvider client={client}>
           <Component {...pageProps} />
         </ApolloProvider>

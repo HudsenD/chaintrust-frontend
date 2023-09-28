@@ -7,7 +7,7 @@ const dashboard = () => {
   return (
     <div className="min-h-screen bg-background">
       <div className="w-full">
-        <div className="justify-center w-full h-auto max-w-screen-lg mx-auto">
+        <div className="justify-center w-full h-auto mx-auto max-w-screen-2xl">
           <Header />
           <CurrentTrusts />
         </div>

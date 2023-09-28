@@ -75,7 +75,7 @@ const NewPriceTrust = () => {
   return (
     <div className="w-full">
       <div className="flex justify-center w-full h-auto max-w-screen-lg mx-auto">
-        <div className="items-center justify-center w-3/6 p-4 mt-16 shadow-xl bg-primary h-1/2 rounded-xl">
+        <div className="items-center justify-center w-3/6 p-4 mt-16 shadow-lg bg-primary h-1/2 rounded-xl">
           <div className="text-xl font-bold text-center">
             Create Price-Based Trust
           </div>
@@ -115,7 +115,7 @@ const NewPriceTrust = () => {
             value={releasePrice}
           />
 
-          <div>
+          <div className="text-center">
             <button
               className={`btn mt-4 bg-accent text-secondary ${
                 beneficiary && assetPair && releasePrice

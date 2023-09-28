@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import DatePicker from "react-datepicker";
+import { Datepicker } from "flowbite-react";
 import {
   usePrepareContractWrite,
   useContractWrite,
@@ -16,7 +16,7 @@ const NewTrust = () => {
   const [showSuccess, setShowSuccess] = useState<boolean>(false);
   const [txMessage, setTxMessage] = useState<string>("");
   const [beneficiary, setBeneficiary] = useState<string>("");
-  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+  const [selectedDate, setSelectedDate] = useState<Date | undefined>(undefined);
   const [unixTimestamp, setUnixTimestamp] = useState<string>("");
   const [insufficientAllowance, setInsufficientAllowance] =
     useState<boolean>(false);
@@ -67,10 +67,12 @@ const NewTrust = () => {
     }, 5000);
   }
 
-  function handleDateChange(date: Date | null) {
+  function handleDateChange(date: Date | undefined) {
     setSelectedDate(date);
+    console.log("Selected date is:", selectedDate);
     if (date) {
       const timestamp = Math.floor(date.getTime() / 1000).toString();
+      console.log(timestamp);
       setUnixTimestamp(timestamp);
     }
   }
@@ -84,7 +86,7 @@ const NewTrust = () => {
   return (
     <div className="w-full">
       <div className="flex justify-center w-full h-auto max-w-screen-lg mx-auto">
-        <div className="items-center justify-center w-3/6 p-4 mt-16 shadow-xl bg-secondary h-1/2 rounded-xl">
+        <div className="items-center justify-center w-3/6 p-4 mt-16 shadow-lg bg-secondary h-1/2 rounded-xl">
           <div className="text-xl font-bold text-center">
             Create Time-Based Trust
           </div>
@@ -97,14 +99,17 @@ const NewTrust = () => {
           />
           <div className="mt-4 text-center">Choose your release date</div>
           <div className="flex justify-center gap-3">
-            <div className="p-1 border-2 border-gray-300 rounded-md">
-              <DatePicker
+            {/* <DatePicker
                 className="w-full"
                 placeholderText="Click to choose date"
                 selected={selectedDate}
                 onChange={(date) => handleDateChange(date)}
-              />
-            </div>
+              /> */}
+            {/* //@ts-ignore */}
+            <Datepicker
+              className="mt-5 mr-3"
+              onSelectedDateChanged={handleDateChange}
+            />
 
             <div>
               <button

@@ -46,28 +46,29 @@ const CurrentTrusts = () => {
   });
   //console.log(trustAddress);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Please Connect Wallet!</p>;
+  if (loading) return <p className="mt-10 text-xl text-center">Loading...</p>;
+  if (error)
+    return <p className="mt-10 text-xl text-center">Please Connect Wallet!</p>;
 
   const priceTrustMinteds = data.priceTrustMinteds.map((trust: Trust) => (
     <div
       key={trust.id}
-      className="p-4 mt-4 shadow-xl bg-secondary rounded-xl text-text"
+      className="p-4 mt-4 shadow-lg bg-secondary rounded-xl text-text"
     >
       <p>Token ID: {trust.tokenId}</p>
       <p>Creator: {trust.creator}</p>
       <p>Beneficiary: {trust.beneficiary}</p>
       <button
-        className="px-4 py-2 mt-2 rounded text-text bg-primary hover:bg-blue-700"
+        className="px-4 py-2 mt-2 rounded-full text-text bg-primary hover:bg-blue-700"
         onClick={() => setSelectedTokenId(trust.tokenId)}
       >
         Get Trust Address
       </button>
       {selectedTokenId === trust.tokenId &&
         (typeof trustAddress === "string" ? (
-          <p>Trust Address: {trustAddress}</p>
+          <p className="mt-2">Trust Address: {trustAddress}</p>
         ) : (
-          <p>Trust Address: Unable to display address</p>
+          <p className="mt-2">Trust Address: Unable to display address</p>
         ))}
     </div>
   ));
@@ -75,22 +76,22 @@ const CurrentTrusts = () => {
   const timeTrustMinteds = data.timeTrustMinteds.map((trust: Trust) => (
     <div
       key={trust.id}
-      className="p-4 mt-4 shadow-xl text-text bg-secondary rounded-xl"
+      className="p-4 mt-4 shadow-lg text-text bg-secondary rounded-xl"
     >
       <p>Token ID: {trust.tokenId}</p>
       <p>Creator: {trust.creator}</p>
       <p>Beneficiary: {trust.beneficiary}</p>
       <button
-        className="px-4 py-2 mt-2 rounded text-text bg-primary hover:bg-blue-700"
+        className="px-4 py-2 mt-2 rounded-full text-text bg-primary hover:bg-blue-700"
         onClick={() => setSelectedTokenId(trust.tokenId)}
       >
         Get Trust Address
       </button>
       {selectedTokenId === trust.tokenId &&
         (typeof trustAddress === "string" ? (
-          <p>Trust Address: {trustAddress}</p>
+          <p className="mt-2">Trust Address: {trustAddress}</p>
         ) : (
-          <p>Trust Address: Unable to display address</p>
+          <p className="mt-2">Trust Address: Unable to display address</p>
         ))}
     </div>
   ));
